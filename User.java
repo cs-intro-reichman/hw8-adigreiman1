@@ -53,6 +53,9 @@
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
+        if(name.equals("null")){
+            return false;
+    }
         if(fCount==maxfCount){
             return false;
     }
@@ -88,10 +91,14 @@
     /** Counts the number of users that both this user and the other user follow.
     /*  Notice: This is the size of the intersection of the two follows lists. */
     public int countMutual(User other) {
+        if (this.fCount ==0 || other.fCount ==0){
+            return  0;
+        }
         int mutualCount= 0;
-    for(int i=0;i<this.follows.length; i++){
-      for(int j=0;j<other.follows.length; j++){
-        if (this.follows[i]==other.follows[j]){
+        
+    for(int i=0;i<this.fCount; i++){
+      for(int j=0;j<other.fCount; j++){
+        if (this.follows[i].equals(other.follows[j]) && this.follows[i] != null ){
             mutualCount++;
         }
 
