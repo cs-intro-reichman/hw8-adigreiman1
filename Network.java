@@ -66,6 +66,9 @@ public class Network {
        if (getUser(name1) == null||getUser(name2) == null ){
         return false;
        }
+       if (name1.equals(name2)){
+        return false;
+       }
        if (getUser(name1).addFollowee(name2)){
         return true;
        }
