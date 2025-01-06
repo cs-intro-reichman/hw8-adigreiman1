@@ -32,8 +32,9 @@ public class Network {
         if (name == null) {
             return null;
         }
+        String fixedName  = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
         for (int i =0; i< userCount; i++){
-            if (users[i].getName().equals(name)){
+            if (users[i].getName().equals(fixedName)){
                 return users[i];
 
             }
