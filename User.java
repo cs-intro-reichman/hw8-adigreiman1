@@ -59,12 +59,13 @@
     /** Makes this user follow the given name. If successful, returns true. 
      *  If this user already follows the given name, or if the follows list is full, does nothing and returns false; */
     public boolean addFollowee(String name) {
+        if (name == null) {
+            return false;
+        }
         
        String fixedName  = name.substring(0,1).toUpperCase() + name.substring(1).toLowerCase();
         
-        if(name.equals("null")){
-            return false;
-    }
+       
         if(fCount==maxfCount){
             return false;
     }
